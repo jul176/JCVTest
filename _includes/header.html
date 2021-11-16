@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" rel="author" href="{{ "/" | relative_url }}">Inicio</a>
+       <!-- <a class="navbar-brand" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>-->
+    <!--  <a class="navbar-brand" rel="author" href="{{ "/" | relative_url }}"><img class="logo" src="logo-jcv-blanco.png"></a>-->
+    {%- assign page_paths = site.header_pages -%}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        {%- for path in page_paths -%}
+          {%- assign my_page = site.pages | where: "path", path | first -%}
+          {%- if my_page.title -%}
+          <li class="nav-item">
+  <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+          </li>
+      
+          {%- endif -%}
+            <li class="nav-item">
+          <a class="nav-link" href="guia-de-uso-html">Guía de uso</a>
+        </li>
+        {% endfor -%}
+      
+     <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Temáticas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="bienestar-subjetivo.html">Bienestar Subjetivo</a>
+          <a class="dropdown-item" href="movilidad.html">Movilidad</a>
+          <a class="dropdown-item" href="educacion-cultura-recreacion-vivienda.html">Educación, cultura, recreación y vivienda</a>
+          <a class="dropdown-item" href="espacio-publico-desarrollo-urbano-servicios-publicos.html">Espacio público, desarrollo urbano y servicios públicos</a>
+          <a class="dropdown-item" href="gobierno.html">Gobierno</a>
+          <a class="dropdown-item" href="relaciones-interpersonales-economia.html">Relaciones interpersonales y economía</a>
+          <a class="dropdown-item" href="seguridad-medio-ambiente.html">Seguridad y medio ambiente</a>
+          <a class="dropdown-item" href="ciudadania.html">Ciudadanía</a>
+        </div>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>
